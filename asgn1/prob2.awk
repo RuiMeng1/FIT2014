@@ -11,8 +11,8 @@ NR == 1 { n = $1; }
 
 NR > 1 {
 
-    if (NR < n + 1) {print "(", $1, "v", $3, ")", "&"}
-    else {print "(", $1, "v", $3, ")"} # we don't want to print & after last line
+    if (NR < n + 1) {print "(","v", $1, "|","v", $3, ")", "&"}
+    else {print "(","v", $1, "|","v", $3, ")"} # we don't want to print & after last line
 
     a[$1, $3] = 1;
     a[$3, $1] = 1;
@@ -33,7 +33,7 @@ END {
                 for (k = j+1; k <= n; k++){
                     if (a[i, k] == 1 && a[j, k] == 1){
                         # Triangle found! 
-                        print "&", "(", "¬", i, "v", "¬", j, "v", "¬", k, ")"
+                        print "&", "(", "¬","v", i, "|", "¬","v", j, "|", "¬","v", k, ")"
                     }
                 }
             }

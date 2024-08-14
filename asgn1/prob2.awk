@@ -12,7 +12,7 @@ NR > 1 {
     if (!first) {
         printf " & ";
     }
-    printf "(v%s | v%s)", $1, $3;
+    printf "(v%s|v%s)", $1, $3;
 
     # Mark this as not the first clause anymore
     first = 0;
@@ -23,18 +23,17 @@ NR > 1 {
 }
 
 END {
-    # Loop through triples of vertices to check for triangles
+    # Looping through the triples of vertices in the array we created
     for (i = 1; i <= n-2; i++) {
         for (j = i+1; j <= n-1; j++) {
-            if (a[i, j] == 1) {  # (i,j) edge found
+            if (a[i, j] == 1) { # edge found, now check for triangles
                 for (k = j+1; k <= n; k++) {
                     if (a[i, k] == 1 && a[j, k] == 1) {
                         # Triangle found! 
-                        printf " & (¬v%s | ¬v%s | ¬v%s)", i, j, k;
+                        printf " & (~v%s|~v%s|~v%s)", i, j, k;
                     }
                 }
             }
         }
     }
-    print "";  # Print newline at the end
 }

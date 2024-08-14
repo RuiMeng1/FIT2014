@@ -1,6 +1,6 @@
 BEGIN {
     first = 1;
-    printf "sagesage -c ' print(propcalc.formula(\""
+    printf "sage -c ' print(propcalc.formula(\""
 }
 # The next line of code gets the number of vertices from the first line
 # and stores it in the variable n

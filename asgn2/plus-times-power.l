@@ -1,11 +1,10 @@
-/*  flex  file for lexical analyser for PLUS-TIMES-POWER expressions,
-    which involve simple arithmetic for nonnegative integers
-    with addition, multiplication and powers.
-    Graham Farr, Monash University
-    Initially, copied from the Wikipedia page for  lex, then modified over time.
-    Last updated:   5 September 2024
-*/
-    
+    /* flex  file for lexical analyser for PLUS-TIMES-POWER expressions,
+     which involve simple arithmetic for nonnegative integers
+     with addition, multiplication and powers.
+     Graham Farr, Monash University
+     Initially, copied from the Wikipedia page for  lex, then modified over time.
+     Last updated:   5 September 2024
+    */
 /*** Definition section ***/
 
 %{

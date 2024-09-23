@@ -2,6 +2,7 @@
 
 /* Definition section */
 %{
+/* C code to be copied verbatim */
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -9,6 +10,9 @@
 #undef  I
 void yyerror(char *);
 #include "quant.h"
+/*
+#include "y.tab.h"
+*/
 %}
 
 %%

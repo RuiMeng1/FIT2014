@@ -744,7 +744,7 @@ case 1:
 YY_RULE_SETUP
 #line 18 "prob3.l"
 {
-    printf("Token: CNOT;  Lexeme: %s\n", yytext);
+    printf("Token: %s;  Lexeme: %s\n", yytext, yytext);
 }
 	YY_BREAK
 case 2:
@@ -768,7 +768,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
-#line 28 "prob3.l"
+#line 29 "prob3.l"
 ECHO;
 	YY_BREAK
 #line 774 "lex.yy.c"
@@ -1776,7 +1776,7 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 28 "prob3.l"
+#line 29 "prob3.l"
 
     /* C Code section */
 

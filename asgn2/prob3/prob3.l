@@ -15,7 +15,7 @@ void yyerror(char *);
     /* Rules section */
 
 (I|H|X|Y|Z|CNOT|TOF) {
-    printf("Token: CNOT;  Lexeme: %s\n", yytext);
+    printf("Token: %s;  Lexeme: %s\n", yytext, yytext);
 }
 [*()] {
     printf("Token and Lexeme: %s\n", yytext);
@@ -23,6 +23,7 @@ void yyerror(char *);
 "(x)" {
     printf("Token: KRONECKERPROD;  Lexeme: %s\n", yytext);
 }
+\n      {printf("Token and Lexeme: <newline>\n");} // NEW LINE
 [ \t]   {    }     /*  skip whitespace  */
 
 %%

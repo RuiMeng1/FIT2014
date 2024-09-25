@@ -44,7 +44,7 @@ int yywrap(void) {
 
 
 /*  comment out the function  main()  if using  lex  with  yacc   */
-int main(void) {
-    yylex();
-    return 0;
-}
+// int main(void) {
+//     yylex();
+//     return 0;
+// }

@@ -48,13 +48,30 @@ Register  kroneckerProductReg(Register v, Register w);
 %token  <num>  NUMBER
 %token  <str>  POWER
 
+/* Added tokens */
+%token  <str>  I
+%token  <str>  H
+%token  <str>  X
+%token  <str>  Y
+%token  <str>  Z
+%token  <str>  CNOT
+%token  <str>  TOF
+
+
 %left '+'
 %left '*'
+
+/* Added operations */
+%left '*'
+%left 'KRONECKERPROD'
 
 %type  <iValue>  start
 %type  <iValue>  line
 %type  <iValue>  expr
 %type  <iValue>  int
+
+/* Added type */
+%type <qmx> start
 
 %start  start
 

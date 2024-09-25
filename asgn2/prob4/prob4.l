@@ -19,10 +19,15 @@ void yyerror(char *);
     /* Rules section */
 
 (I|H|X|Y|Z|CNOT|TOF) {
-    // printf("Token: %s;  Lexeme: %s\n", yytext, yytext);
+    yylval.str = strdup(yytext);
 
-    // return token
-    return *yytext
+    if (strcmp(yytext, "I") == 0) return I;
+    if (strcmp(yytext, "H") == 0) return H;
+    if (strcmp(yytext, "X") == 0) return X;
+    if (strcmp(yytext, "Y") == 0) return Y;
+    if (strcmp(yytext, "Z") == 0) return Z;
+    if (strcmp(yytext, "CNOT") == 0) return CNOT;
+    if (strcmp(yytext, "TOF") == 0) return TOF;
 }
 [*()] {
     // printf("Token and Lexeme: %s\n", yytext);

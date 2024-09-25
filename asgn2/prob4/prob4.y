@@ -89,12 +89,18 @@ line     :    expr   {  printf("%d\n", $1);   }
          |        /*  allow "empty" expression  */           {     }
          ;
          
+/* modified */
+expr    :   I {$$ = identity();}
+        |   H {$$ = had();}
+        |   X {$$ = pauliX();}
+        |   Y {$$ = pauliY();}
+        |   Z {$$ = pauliZ();}
+        |   CNOT {$$ = cNot();}
+        |   TOF {$$ = toffoli();}
+        |   expr '*' expr {$$ = productMxMx($1, $3);}
+        |   expr KRONECKERPROD expr { $$ = kroneckerProductMx($1, $3);}
+        ;
 
-expr     :    int    {  $$ = $1;  }
-         |    POWER '(' expr ',' expr ')'    {  $$ = pow($3,$5);  }
-         |    expr '*' expr    {  $$ = $1 * $3;  }
-         |    expr '+' expr    {  $$ = $1 + $3;  }
-         ;
 
 int      :    NUMBER             {  $$ = $1;   }
          ;

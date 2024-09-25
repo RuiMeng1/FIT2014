@@ -19,15 +19,23 @@ void yyerror(char *);
     /* Rules section */
 
 (I|H|X|Y|Z|CNOT|TOF) {
-    printf("Token: %s;  Lexeme: %s\n", yytext, yytext);
+    // printf("Token: %s;  Lexeme: %s\n", yytext, yytext);
+
+    // return token
+    return *yytext
 }
 [*()] {
-    printf("Token and Lexeme: %s\n", yytext);
+    // printf("Token and Lexeme: %s\n", yytext);
+    return *yytext
 }
 "(x)" {
-    printf("Token: KRONECKERPROD;  Lexeme: %s\n", yytext);
+    // printf("Token: KRONECKERPROD;  Lexeme: %s\n", yytext);
+    return KRONECKERPROD
 }
-\n      {printf("Token and Lexeme: <newline>\n");} // NEW LINE
+\n      {
+    //printf("Token and Lexeme: <newline>\n");
+    return *yytext
+    }
 [ \t]   {    }     /*  skip whitespace  */
 
 %%

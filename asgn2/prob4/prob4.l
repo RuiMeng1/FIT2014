@@ -10,9 +10,7 @@
 #undef  I
 void yyerror(char *);
 #include "quant.h"
-/*
 #include "y.tab.h"
-*/
 %}
 
 %%
@@ -31,15 +29,15 @@ void yyerror(char *);
 }
 [*()] {
     // printf("Token and Lexeme: %s\n", yytext);
-    return *yytext
+    return *yytext;
 }
 "(x)" {
     // printf("Token: KRONECKERPROD;  Lexeme: %s\n", yytext);
-    return KRONECKERPROD
+    return KRONECKERPROD;
 }
 \n      {
     //printf("Token and Lexeme: <newline>\n");
-    return *yytext
+    return *yytext;
     }
 [ \t]   {    }     /*  skip whitespace  */
 

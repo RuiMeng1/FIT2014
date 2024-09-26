@@ -61,7 +61,6 @@ Register  kroneckerProductReg(Register v, Register w);
 %type  <iValue>  start
 %type  <iValue>  line
 %type  <iValue>  expr
-%type  <iValue>  int
 
 
 %start  start

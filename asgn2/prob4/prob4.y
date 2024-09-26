@@ -92,13 +92,7 @@ expr    :   I {$$ = identity();}
         |   expr KRONECKERPROD expr { $$ = kroneckerProductMx($1, $3);}
         ;
 
-
-int      :    NUMBER             {  $$ = $1;   }
-         ;
-
-
 %%      /*   programs   */
-
 
 int  printMatrix(Matrix a)
 /*  print the matrix  a  */

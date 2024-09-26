@@ -60,7 +60,7 @@ Register  kroneckerProductReg(Register v, Register w);
 
 %type  <iValue>  start
 %type  <iValue>  line
-%type  <iValue>  expr
+%type  <qmx>  expr
 
 
 %start  start
@@ -70,16 +70,16 @@ Register  kroneckerProductReg(Register v, Register w);
 %%       /*   rules section   */
 
 
-
 start    :    line  '\n'       {  }
          |    start  line  '\n'          {  }
          ;
 
-line     :    expr   {  printf("%d\n", $1);   }
-         |        /*  allow "empty" expression  */           {     }
-         ;
-         
 /* modified */
+
+line : expr { printMatrix($1); }   
+      | /* allow "empty" expression */ { }
+;
+
 expr    :   I {$$ = identity();}
         |   H {$$ = had();}
         |   X {$$ = pauliX();}
@@ -89,6 +89,7 @@ expr    :   I {$$ = identity();}
         |   TOF {$$ = toffoli();}
         |   expr '*' expr {$$ = productMxMx($1, $3);}
         |   expr KRONECKERPROD expr { $$ = kroneckerProductMx($1, $3);}
+        |   '(' expr ')' {$$ = $2;}
         ;
 
 %%      /*   programs   */

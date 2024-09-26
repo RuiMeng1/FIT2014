@@ -27,11 +27,16 @@ void yyerror(char *);
     if (strcmp(yytext, "CNOT") == 0) return CNOT;
     if (strcmp(yytext, "TOF") == 0) return TOF;
 }
-[*()] {
-    // printf("Token and Lexeme: %s\n", yytext);
-    return *yytext;
+"*" {
+    return '*';
 }
-"(x)" {
+"(" {
+    return '(';
+}
+")" {
+    return ')';
+}
+((x)) {
     // printf("Token: KRONECKERPROD;  Lexeme: %s\n", yytext);
     return KRONECKERPROD;
 }
@@ -40,6 +45,11 @@ void yyerror(char *);
     return *yytext;
     }
 [ \t]   {    }     /*  skip whitespace  */
+
+.       {
+           yyerror("invalid character");
+
+        }
 
 %%
     /* C Code section */

@@ -351,8 +351,8 @@ static void yynoreturn yy_fatal_error ( const char* msg  );
 	(yy_hold_char) = *yy_cp; \
 	*yy_cp = '\0'; \
 	(yy_c_buf_p) = yy_cp;
-#define YY_NUM_RULES 9
-#define YY_END_OF_BUFFER 10
+#define YY_NUM_RULES 7
+#define YY_END_OF_BUFFER 8
 /* This struct is not used in this scanner,
    but its presence is necessary. */
 struct yy_trans_info
@@ -362,8 +362,8 @@ struct yy_trans_info
 	};
 static const flex_int16_t yy_accept[19] =
     {   0,
-        0,    0,   10,    8,    7,    6,    3,    4,    2,    8,
-        1,    8,    5,    0,    0,    0,    1,    0
+        0,    0,    8,    6,    5,    4,    2,    2,    6,    1,
+        6,    0,    0,    0,    3,    0,    1,    0
     } ;
 
 static const YY_CHAR yy_ec[256] =
@@ -406,8 +406,8 @@ static const YY_CHAR yy_meta[18] =
 
 static const flex_int16_t yy_base[19] =
     {   0,
-        0,    0,   23,   24,   24,   24,   24,   24,   24,   11,
-       24,    9,   24,    8,   11,    5,   24,   24
+        0,    0,   25,   26,   26,   26,    7,   26,   12,   26,
+       10,   16,    8,   11,   26,    5,   26,   26
     } ;
 
 static const flex_int16_t yy_def[19] =
@@ -416,22 +416,22 @@ static const flex_int16_t yy_def[19] =
        18,   18,   18,   18,   18,   18,   18,    0
     } ;
 
-static const flex_int16_t yy_nxt[42] =
+static const flex_int16_t yy_nxt[44] =
     {   0,
-        4,    5,    6,    7,    8,    9,   10,    4,   11,   11,
-        4,    4,   12,   11,   11,   11,   13,   17,   17,   16,
-       15,   14,   18,    3,   18,   18,   18,   18,   18,   18,
+        4,    5,    6,    7,    8,    8,    9,    4,   10,   10,
+        4,    4,   11,   10,   10,   10,    4,   17,   17,   16,
+       15,   14,   13,   12,   18,    3,   18,   18,   18,   18,
        18,   18,   18,   18,   18,   18,   18,   18,   18,   18,
-       18
+       18,   18,   18
     } ;
 
-static const flex_int16_t yy_chk[42] =
+static const flex_int16_t yy_chk[44] =
     {   0,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
-        1,    1,    1,    1,    1,    1,    1,   16,   15,   14,
-       12,   10,    3,   18,   18,   18,   18,   18,   18,   18,
+        1,    1,    1,    1,    1,    1,    1,   16,   14,   13,
+       12,   11,    9,    7,    3,   18,   18,   18,   18,   18,
        18,   18,   18,   18,   18,   18,   18,   18,   18,   18,
-       18
+       18,   18,   18
     } ;
 
 static yy_state_type yy_last_accepting_state;
@@ -449,9 +449,9 @@ int yy_flex_debug = 0;
 #define YY_RESTORE_YY_MORE_OFFSET
 char *yytext;
 #line 1 "prob4.l"
-/* Author : Rui Meng (33095612) */
+#line 2 "prob4.l"
+ /* Author : Rui Meng (33095612) */
 /* Definition section */
-#line 5 "prob4.l"
 /* C code to be copied verbatim */
 #include <stdio.h>
 #include <stdlib.h>
@@ -717,7 +717,7 @@ yy_match:
 			yy_current_state = yy_nxt[yy_base[yy_current_state] + yy_c];
 			++yy_cp;
 			}
-		while ( yy_base[yy_current_state] != 24 );
+		while ( yy_base[yy_current_state] != 26 );
 
 yy_find_action:
 		yy_act = yy_accept[yy_current_state];
@@ -760,59 +760,45 @@ case 2:
 YY_RULE_SETUP
 #line 31 "prob4.l"
 {
-    return '*';
-}
+            return  *yytext;
+        }
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
 #line 34 "prob4.l"
 {
-    return '(';
-}
-	YY_BREAK
-case 4:
-YY_RULE_SETUP
-#line 37 "prob4.l"
-{
-    return ')';
-}
-	YY_BREAK
-case 5:
-YY_RULE_SETUP
-#line 40 "prob4.l"
-{
     // printf("Token: KRONECKERPROD;  Lexeme: %s\n", yytext);
     return KRONECKERPROD;
 }
 	YY_BREAK
-case 6:
-/* rule 6 can match eol */
+case 4:
+/* rule 4 can match eol */
 YY_RULE_SETUP
-#line 44 "prob4.l"
+#line 38 "prob4.l"
 {
     //printf("Token and Lexeme: <newline>\n");
     return *yytext;
     }
 	YY_BREAK
-case 7:
+case 5:
 YY_RULE_SETUP
-#line 48 "prob4.l"
+#line 42 "prob4.l"
 {    }     /*  skip whitespace  */
 	YY_BREAK
-case 8:
+case 6:
 YY_RULE_SETUP
-#line 50 "prob4.l"
+#line 44 "prob4.l"
 {
            yyerror("invalid character");
 
         }
 	YY_BREAK
-case 9:
+case 7:
 YY_RULE_SETUP
-#line 55 "prob4.l"
+#line 49 "prob4.l"
 ECHO;
 	YY_BREAK
-#line 816 "lex.yy.c"
+#line 802 "lex.yy.c"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 
@@ -1817,7 +1803,7 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 55 "prob4.l"
+#line 49 "prob4.l"
 
     /* C Code section */
 

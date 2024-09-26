@@ -1,4 +1,4 @@
-/* Author : Rui Meng (33095612) */
+ /* Author : Rui Meng (33095612) */
 
 /* Definition section */
 %{
@@ -27,16 +27,10 @@ void yyerror(char *);
     if (strcmp(yytext, "CNOT") == 0) return CNOT;
     if (strcmp(yytext, "TOF") == 0) return TOF;
 }
-"*" {
-    return '*';
-}
-"(" {
-    return '(';
-}
-")" {
-    return ')';
-}
-((x)) {
+[*\(\)]   {
+            return  *yytext;
+        }
+"(x)" {
     // printf("Token: KRONECKERPROD;  Lexeme: %s\n", yytext);
     return KRONECKERPROD;
 }

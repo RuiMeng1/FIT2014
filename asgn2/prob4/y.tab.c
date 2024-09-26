@@ -608,8 +608,8 @@ static const yytype_int8 yytranslate[] =
 /* YYRLINE[YYN] -- Source line where rule number YYN was defined.  */
 static const yytype_int8 yyrline[] =
 {
-       0,    74,    74,    75,    78,    79,    84,    85,    86,    87,
-      88,    89,    90,    91,    92,    93
+       0,    73,    73,    74,    79,    80,    83,    84,    85,    86,
+      87,    88,    89,    90,    91,    92
 };
 #endif
 
@@ -1181,85 +1181,85 @@ yyreduce:
   switch (yyn)
     {
   case 2: /* start: line '\n'  */
-#line 74 "prob4.y"
+#line 73 "prob4.y"
                                {  }
 #line 1187 "y.tab.c"
     break;
 
   case 3: /* start: start line '\n'  */
-#line 75 "prob4.y"
+#line 74 "prob4.y"
                                          {  }
 #line 1193 "y.tab.c"
     break;
 
   case 4: /* line: expr  */
-#line 78 "prob4.y"
+#line 79 "prob4.y"
             { printMatrix((yyvsp[0].qmx)); }
 #line 1199 "y.tab.c"
     break;
 
   case 5: /* line: %empty  */
-#line 79 "prob4.y"
+#line 80 "prob4.y"
                                        { }
 #line 1205 "y.tab.c"
     break;
 
   case 6: /* expr: I  */
-#line 84 "prob4.y"
+#line 83 "prob4.y"
               {(yyval.qmx) = identity();}
 #line 1211 "y.tab.c"
     break;
 
   case 7: /* expr: H  */
-#line 85 "prob4.y"
+#line 84 "prob4.y"
               {(yyval.qmx) = had();}
 #line 1217 "y.tab.c"
     break;
 
   case 8: /* expr: X  */
-#line 86 "prob4.y"
+#line 85 "prob4.y"
               {(yyval.qmx) = pauliX();}
 #line 1223 "y.tab.c"
     break;
 
   case 9: /* expr: Y  */
-#line 87 "prob4.y"
+#line 86 "prob4.y"
               {(yyval.qmx) = pauliY();}
 #line 1229 "y.tab.c"
     break;
 
   case 10: /* expr: Z  */
-#line 88 "prob4.y"
+#line 87 "prob4.y"
               {(yyval.qmx) = pauliZ();}
 #line 1235 "y.tab.c"
     break;
 
   case 11: /* expr: CNOT  */
-#line 89 "prob4.y"
+#line 88 "prob4.y"
                  {(yyval.qmx) = cNot();}
 #line 1241 "y.tab.c"
     break;
 
   case 12: /* expr: TOF  */
-#line 90 "prob4.y"
+#line 89 "prob4.y"
                 {(yyval.qmx) = toffoli();}
 #line 1247 "y.tab.c"
     break;
 
   case 13: /* expr: expr '*' expr  */
-#line 91 "prob4.y"
+#line 90 "prob4.y"
                           {(yyval.qmx) = productMxMx((yyvsp[-2].qmx), (yyvsp[0].qmx));}
 #line 1253 "y.tab.c"
     break;
 
   case 14: /* expr: expr KRONECKERPROD expr  */
-#line 92 "prob4.y"
+#line 91 "prob4.y"
                                     { (yyval.qmx) = kroneckerProductMx((yyvsp[-2].qmx), (yyvsp[0].qmx));}
 #line 1259 "y.tab.c"
     break;
 
   case 15: /* expr: '(' expr ')'  */
-#line 93 "prob4.y"
+#line 92 "prob4.y"
                          {(yyval.qmx) = (yyvsp[-1].qmx);}
 #line 1265 "y.tab.c"
     break;
@@ -1458,7 +1458,7 @@ yyreturnlab:
   return yyresult;
 }
 
-#line 96 "prob4.y"
+#line 95 "prob4.y"
       /*   programs   */
 
 int  printMatrix(Matrix a)

@@ -32,12 +32,12 @@ void yyerror(char *);
 
 k0 {
     yylval.str = strdup(yytext);
-    return k0;
+    return KET0;
 }
 
 k1 {
     yylval.str = strdup(yytext);
-    return k1;
+    return KET1;
 }
 
     /* TODO: Do we need to seperate this into individual statements?? */

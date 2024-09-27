@@ -49,7 +49,8 @@ Register  kroneckerProductReg(Register v, Register w);
 %token  <str>  POWER
 
 /* Added tokens */
-%token  <str>  I H X Y Z CNOT TOF KRONECKERPROD
+%token  <str>  I H X Y Z CNOT TOF KRONECKERPROD 
+%token  <str>  KET0 KET1
 
 
 %left '+'
@@ -61,6 +62,7 @@ Register  kroneckerProductReg(Register v, Register w);
 %type  <iValue>  start
 %type  <iValue>  line
 %type  <qmx>  expr
+%type  <qreg> reg
 
 
 %start  start
@@ -77,6 +79,7 @@ start    :    line  '\n'       {  }
 /* modified */
 
 line : expr { printMatrix($1); }   
+      | reg  { printRegister($1); } 
       | /* allow "empty" expression */ { }
 ;
 
@@ -91,6 +94,14 @@ expr    :   I {$$ = identity();}
         |   expr KRONECKERPROD expr { $$ = kroneckerProductMx($1, $3);}
         |   '(' expr ')' {$$ = $2;}
         ;
+
+reg     :   KET0 {$$ = ket0();}
+        |   KET1 {$$ = ket1();}
+        |   expr '*' reg {$$ = productMxReg($1, $3);}
+        |   reg KRONECKERPROD reg { $$ = kroneckerProductReg($1, $3);}
+        |   '(' reg ')' {$$ = $2;}
+        ;
+
 
 %%      /*   programs   */
 

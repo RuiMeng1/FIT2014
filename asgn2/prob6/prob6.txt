@@ -1,0 +1,1 @@
+(Z (x) Z (x) H) * (CNOT (x) H) * (X (x) Y (x) X) * (k0 (x) k1 (x) k0)

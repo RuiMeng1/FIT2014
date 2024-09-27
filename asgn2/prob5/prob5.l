@@ -27,6 +27,19 @@ void yyerror(char *);
     if (strcmp(yytext, "CNOT") == 0) return CNOT;
     if (strcmp(yytext, "TOF") == 0) return TOF;
 }
+
+    /* QUANT additional registers */
+
+k0 {
+    yylval.str = strdup(yytext);
+    return k0;
+}
+
+k1 {
+    yylval.str = strdup(yytext);
+    return k1;
+}
+
     /* TODO: Do we need to seperate this into individual statements?? */
 [*\(\)]   {
             return  *yytext;
